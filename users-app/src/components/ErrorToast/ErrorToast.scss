@@ -1,0 +1,28 @@
+$primary: #5c527f;
+$secondary: #3e2c41;
+$dark: #261c2c;
+$light: #6e85b2;
+
+.error{
+    background-color: $primary;
+    color: $dark;
+    .error-header{
+        padding: 15px;
+        border-bottom: 2px solid $light;
+        span{
+            margin-left: 10px;
+        }
+        .btn-error{
+            position: relative;
+            top: -10px;
+            float: right;
+            background-color: transparent;
+            border: none;
+        }
+    }
+    .error-message{
+        color: $dark;
+        font-size: small;
+        padding: 25px
+    }
+}

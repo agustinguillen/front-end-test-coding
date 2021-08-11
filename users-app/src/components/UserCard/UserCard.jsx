@@ -1,5 +1,7 @@
 import { Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { FaUserAlt, FaHashtag } from "react-icons/fa";
+import "./UserCard.scss";
 
 const UserCard = ({ user }) => {
   const handleScroll = () => {
@@ -14,17 +16,23 @@ const UserCard = ({ user }) => {
       onClick={() => handleScroll()}
     >
       <Card
+        className="bg-secondary card-user"
         style={{
           width: "18rem",
           margin: "1rem",
-          backgroundColor: "#3E2C41",
           color: "whitesmoke",
         }}
       >
         <Card.Img variant="top" src={user.avatar_url} />
         <Card.Body>
-          <Card.Title>{user.login}</Card.Title>
-          <Card.Text>ID de usuario: {user.id}</Card.Text>
+          <Card.Title>
+            <FaUserAlt size={15} className="mx-2" />
+            {user.login}
+          </Card.Title>
+          <Card.Text>
+            <FaHashtag size={17} className="mx-2" />
+            ID de usuario: {user.id}
+          </Card.Text>
         </Card.Body>
       </Card>
     </Link>

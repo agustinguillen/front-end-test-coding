@@ -1,7 +1,7 @@
 import Axios from "axios";
 
 export const axios = Axios.create({
-  baseURL: "https://api.github.com/search/users?q=GUILLEN",
+  baseURL: "https://api.github.com/search",
 });
 
 export const detailURL = Axios.create({

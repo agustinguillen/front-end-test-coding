@@ -1,53 +1,101 @@
-import { Container, Row, Col, Form, FormControl, Button } from 'react-bootstrap';
-import UsersList from '../components/UsersList';
-import { useState, useEffect } from 'react';
-import { axios } from '../axios';
+import { Container, Row, Col, Form, FormControl, Button } from "react-bootstrap";
+import UsersList from "../components/UsersList/UsersList";
+import { useState } from "react";
+import { axios } from "../axios";
+import { FaGithub, FaTrashAlt } from "react-icons/fa";
+import ErrorToast from "../components/ErrorToast/ErrorToast";
+import Brand from "../components/Brand/Brand";
 
 const Home = () => {
-
-  const [username, setUsername] = useState('');
+  const [username, setUsername] = useState("");
   const [users, setUsers] = useState([]);
+  const [error, setError] = useState(false);
 
-  useEffect(()=>{
-    getUsers();
-  }, []);
-  
-  const getUsers = async ()=>{
-     const response = await axios.get('').catch((err)=>console.error("Error:", err)) 
-     if(response && response.data){
-         setUsers(response.data.items)
-     }
+  const getUsers = async (user) => {
+    const response = await axios
+      .get(`users?q=${user}`)
+      .catch((err) => {
+        console.error("Error:", err)
+        setUsers([]);
+        setError(true)
+      });
+    if(response && response.data.total_count === 0){
+      setUsers([]);
+      setError(true)
+      console.error("Error:")
+    }
+    
+    if (response && response.data.total_count > 0) {
+      setUsers(response.data.items);
+      console.log(response);
+    }
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (username.length >= 4 && username !== "noloro") {
+      getUsers(username);
+    }
+  };
+
+  const closeError = () => {
+    setError(false)
   }
 
-  const handleSubmit = (e)=>{
-    e.preventDefault()
-  }
+  const handleClear = () => {
+    setUsers([]);
+  };
 
   return (
-    <Container className="text-center mt-5">
-      <h1>Home</h1>
-      <Row className="justify-content-center">
-        <Col xs md={9} lg={6}>
-          <Form className="d-flex">
-            <FormControl
-              type="search"
-              placeholder="Github username here..."
-              className="mr-2"
-              aria-label="Search"
-              value={username}
-              onChange={e=>setUsername(e.target.value)}
-            />
-            <Button variant="outline-warning" className="mx-3" onClick={handleSubmit}>
-              Search
-            </Button>
-          </Form>
-        </Col>
-      </Row>
-      <Row>
-        <UsersList users={users} />
-      </Row>
-    </Container>
+    <>
+      <Container className="text-center mt-3">
+        <Brand />
+        <Row className="justify-content-center">
+          <Col xs md={9} lg={6}>
+            <Form className="d-flex mt-3" onSubmit={(e) => handleSubmit(e)}>
+              <FormControl
+                type="search"
+                placeholder="Github username here..."
+                className="mr-2"
+                aria-label="Search"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+              />
+              <Button
+                type="submit"
+                variant="outline-warning"
+                className="mx-3"
+                disabled={username.length < 4 || username === "noloro"}
+              >
+                Search
+              </Button>
+              <Button variant="outline-light" onClick={() => handleClear()}>
+                <FaTrashAlt />
+              </Button>
+            </Form>
+          </Col>
+        </Row>
+        <Row>
+          {users.length >= 1 ? (
+            <UsersList users={users} />
+          ) : (
+            <>
+              {error === false ? (
+                <div className="mt-5">
+                  <h2 className="mt-5">Welcome to GitHub-Users App!</h2>
+                  <h5>
+                    Search for any <FaGithub size={30} /> GitHub user you want
+                  </h5>
+                </div>
+              ) : (
+                <ErrorToast closeError={closeError} msg="message1" />
+              )}
+            </>
+          )}
+        </Row>
+      </Container>
+    </>
   );
 };
 
-export default Home
+export default Home;

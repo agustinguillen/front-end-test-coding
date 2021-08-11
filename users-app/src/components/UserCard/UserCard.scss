@@ -1,0 +1,13 @@
+.link{
+    .card-user{
+        box-shadow: 3px 7px 5px 0px rgba(0,0,0,0.57);
+        -webkit-box-shadow: 3px 7px 5px 0px rgba(0,0,0,0.57);
+        -moz-box-shadow: 3px 7px 5px 0px rgba(0,0,0,0.57);
+        &:hover{
+            transform: translate(-1%,-1%);
+            box-shadow: 5px 9px 5px 0px rgba(0,0,0,0.57);
+            -webkit-box-shadow: 5px 9px 5px 0px rgba(0,0,0,0.57);
+            -moz-box-shadow: 5px 9px 5px 0px rgba(0,0,0,0.57);
+        }
+    }
+}
