@@ -4,27 +4,27 @@ $dark: #261c2c;
 $light: #6e85b2;
 
 .repositories {
-    height: 85vh;
-    max-height: 700px;
-    padding: 1vw;
-    overflow-y: scroll;
-    .card-repo{
-        box-shadow: 3px 7px 5px 0px rgba(0,0,0,0.57);
-        -webkit-box-shadow: 3px 7px 5px 0px rgba(0,0,0,0.57);
-        -moz-box-shadow: 3px 7px 5px 0px rgba(0,0,0,0.57);
-        &:hover{
-            transform: translate(-0.5%,-0.5%);
-            box-shadow: 4px 8px 5px 0px rgba(0,0,0,0.57);
-            -webkit-box-shadow: 4px 8px 5px 0px rgba(0,0,0,0.57);
-            -moz-box-shadow: 4px 8px 5px 0px rgba(0,0,0,0.57);
-        }
-        .tag{
-            background-color: #ffc107;
-            width: fit-content;
-            height: 25px;
-            border-radius: 5px;
-            color: $dark;
-            padding: 0 5px;
-        }
+  height: 85vh;
+  max-height: 700px;
+  padding: 1vw;
+  overflow-y: scroll;
+  .card-repo {
+    box-shadow: 3px 7px 5px 0px rgba(0, 0, 0, 0.57);
+    -webkit-box-shadow: 3px 7px 5px 0px rgba(0, 0, 0, 0.57);
+    -moz-box-shadow: 3px 7px 5px 0px rgba(0, 0, 0, 0.57);
+    &:hover {
+      transform: translate(-0.5%, -0.5%);
+      box-shadow: 4px 8px 5px 0px rgba(0, 0, 0, 0.57);
+      -webkit-box-shadow: 4px 8px 5px 0px rgba(0, 0, 0, 0.57);
+      -moz-box-shadow: 4px 8px 5px 0px rgba(0, 0, 0, 0.57);
     }
+    .tag {
+      background-color: #ffc107;
+      width: fit-content;
+      height: 25px;
+      border-radius: 5px;
+      color: $dark;
+      padding: 0 5px;
+    }
+  }
 }

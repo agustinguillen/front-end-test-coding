@@ -1,4 +1,11 @@
-import { Container, Row, Col, Form, FormControl, Button } from "react-bootstrap";
+import {
+  Container,
+  Row,
+  Col,
+  Form,
+  FormControl,
+  Button,
+} from "react-bootstrap";
 import UsersList from "../components/UsersList/UsersList";
 import { useState } from "react";
 import { axios } from "../axios";
@@ -12,22 +19,18 @@ const Home = () => {
   const [error, setError] = useState(false);
 
   const getUsers = async (user) => {
-    const response = await axios
-      .get(`users?q=${user}`)
-      .catch((err) => {
-        console.error("Error:", err)
-        setUsers([]);
-        setError(true)
-      });
-    if(response && response.data.total_count === 0){
+    const response = await axios.get(`users?q=${user}`).catch((err) => {
+      console.error("Error:", err);
       setUsers([]);
-      setError(true)
-      console.error("Error:")
+      setError(true);
+    });
+    if (response && response.data.total_count === 0) {
+      setUsers([]);
+      setError(true);
     }
-    
+
     if (response && response.data.total_count > 0) {
       setUsers(response.data.items);
-      console.log(response);
     }
   };
 
@@ -39,8 +42,8 @@ const Home = () => {
   };
 
   const closeError = () => {
-    setError(false)
-  }
+    setError(false);
+  };
 
   const handleClear = () => {
     setUsers([]);

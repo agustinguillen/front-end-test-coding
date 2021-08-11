@@ -18,12 +18,10 @@ const UserDetail = () => {
   }, [login]);
 
   const getUser = async (login) => {
-    const response = await detailURL
-      .get(`/${login}`)
-      .catch((err) => {
-        console.error("Error:", err);
-        setError(true);
-      });
+    const response = await detailURL.get(`/${login}`).catch((err) => {
+      console.error("Error:", err);
+      setError(true);
+    });
     if (response && response.data) {
       setUser(response.data);
       setError(false);
@@ -31,12 +29,10 @@ const UserDetail = () => {
   };
 
   const getRepos = async (login) => {
-    const response = await detailURL
-      .get(`/${login}/repos`)
-      .catch((err) => {
-        console.error("Error:", err);
-        setError(true);
-      });
+    const response = await detailURL.get(`/${login}/repos`).catch((err) => {
+      console.error("Error:", err);
+      setError(true);
+    });
     if (response && response.data) {
       setRepos(response.data);
       setError(false);
@@ -51,7 +47,7 @@ const UserDetail = () => {
 
   return (
     <>
-      { !error ? (
+      {!error ? (
         <Container className="mt-3">
           <Row>
             <Col sm lg={4}>

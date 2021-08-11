@@ -35,7 +35,6 @@ body {
   .link {
     text-decoration: none;
   }
-
 }
 
 code {
@@ -43,38 +42,38 @@ code {
     monospace;
 }
 
-::-webkit-scrollbar{
+::-webkit-scrollbar {
   width: 0.8vw;
 }
 
-::-webkit-scrollbar-thumb{
+::-webkit-scrollbar-thumb {
   background-color: $primary;
 }
 
-::-webkit-scrollbar-track{
+::-webkit-scrollbar-track {
   background-color: $dark;
 }
 
-::-moz-scrollbar{
+::-moz-scrollbar {
   width: 0.8vw;
 }
 
-::-moz-scrollbar-thumb{
+::-moz-scrollbar-thumb {
   background-color: $primary;
 }
 
-::-moz-scrollbar-track{
+::-moz-scrollbar-track {
   background-color: $dark;
 }
 
-::-o-scrollbar{
+::-o-scrollbar {
   width: 0.8vw;
 }
 
-::-o-scrollbar-thumb{
+::-o-scrollbar-thumb {
   background-color: $primary;
 }
 
-::-o-scrollbar-track{
+::-o-scrollbar-track {
   background-color: $dark;
 }

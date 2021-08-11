@@ -1,14 +1,19 @@
-.brand{
-    .brand-box{
-        width: fit-content;
-        padding: 20px;
-        border-radius: 50px;
-        box-shadow: 3px 7px 5px 0px rgba(0,0,0,0.57);
-        -webkit-box-shadow: 3px 7px 5px 0px rgba(0,0,0,0.57);
-        -moz-box-shadow: 3px 7px 5px 0px rgba(0,0,0,0.57);
-        background: linear-gradient(180deg, rgb(132, 147, 177) 0%, rgba(92,82,127,1) 68%, rgb(74, 65, 107) 100%);
-        .brand-text{
-            font-weight: bold;
-        }
+.brand {
+  .brand-box {
+    width: fit-content;
+    padding: 20px;
+    border-radius: 50px;
+    box-shadow: 3px 7px 5px 0px rgba(0, 0, 0, 0.57);
+    -webkit-box-shadow: 3px 7px 5px 0px rgba(0, 0, 0, 0.57);
+    -moz-box-shadow: 3px 7px 5px 0px rgba(0, 0, 0, 0.57);
+    background: linear-gradient(
+      180deg,
+      rgb(132, 147, 177) 0%,
+      rgba(92, 82, 127, 1) 68%,
+      rgb(74, 65, 107) 100%
+    );
+    .brand-text {
+      font-weight: bold;
     }
+  }
 }
