@@ -31,6 +31,7 @@ const Home = () => {
 
     if (response && response.data.total_count > 0) {
       setUsers(response.data.items);
+      console.log(response.data.items);
     }
   };
 
